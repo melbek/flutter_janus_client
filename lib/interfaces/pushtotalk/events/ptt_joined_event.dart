@@ -53,6 +53,7 @@ class PTTParticipants {
   bool? muted;
   bool? isBanned;
   bool? talking;
+  bool? status;
   int? spatialPosition;
 
   PTTParticipants({
@@ -67,6 +68,7 @@ class PTTParticipants {
     this.muted = false,
     this.isBanned = false,
     this.talking = false,
+    this.status = false,
     this.spatialPosition,
   });
 
@@ -82,6 +84,7 @@ class PTTParticipants {
     muted = json['muted'] != null ? json['muted'] : muted;
     isBanned = json['is_banned'] != null ? json['is_banned'] : isBanned;
     talking = json['talking'] != null ? json['talking'] : talking;
+    status = json['status'] != null ? json['status'] : status;
     spatialPosition = json['spatial_position'];
   }
 
