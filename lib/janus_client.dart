@@ -36,6 +36,8 @@ part 'interfaces/typed_event.dart';
 
 part './wrapper_plugins/janus_audio_bridge_plugin.dart';
 
+part './wrapper_plugins/pushtotalk.plugin.dart';
+
 part './wrapper_plugins/janus_streaming_plugin.dart';
 
 part './wrapper_plugins/janus_text_room_plugin.dart';
@@ -105,6 +107,18 @@ part './interfaces/audio_bridge/events/audio_bridge_destroyed_event.dart';
 part './interfaces/audio_bridge/events/audio_bridge_joined_event.dart';
 
 part './interfaces/audio_bridge/events/audio_bridge_leaving_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_configured_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_talking_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_destroyed_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_joined_event.dart';
+
+part './interfaces/pushtotalk/events/ptt_leaving_event.dart';
 
 part './interfaces/sip/events/sip_registered_event.dart';
 
