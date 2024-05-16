@@ -43,26 +43,44 @@ class PTTJoinedEvent extends PTTEvent {
 
 class PTTParticipants {
   dynamic id;
+  String? customId;
   String? display;
+  String? firstName;
+  String? lastName;
+  String? image;
+  String? userType;
   bool? setup;
   bool? muted;
+  bool? isBanned;
   bool? talking;
   int? spatialPosition;
 
   PTTParticipants({
     this.id,
+    this.customId,
     this.display,
+    this.firstName,
+    this.lastName,
+    this.image,
+    this.userType,
     this.setup = false,
     this.muted = false,
+    this.isBanned = false,
     this.talking = false,
     this.spatialPosition,
   });
 
   PTTParticipants.fromJson(dynamic json) {
-    id = json['custom_id'];
+    id = json['id'];
+    customId = json['custom_id'];
     display = json['display'];
+    firstName = json['first_name'];
+    lastName = json['last_name'];
+    image = json['image'];
+    userType = json['user_type'];
     setup = json['setup'] != null ? json['setup'] : setup;
     muted = json['muted'] != null ? json['muted'] : muted;
+    isBanned = json['is_banned'] != null ? json['is_banned'] : isBanned;
     talking = json['talking'] != null ? json['talking'] : talking;
     spatialPosition = json['spatial_position'];
   }
