@@ -43,7 +43,7 @@ class PTTJoinedEvent extends PTTEvent {
 
 class PTTParticipants {
   dynamic id;
-  String? customId;
+  int? customId;
   String? display;
   String? firstName;
   String? lastName;
