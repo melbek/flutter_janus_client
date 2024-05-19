@@ -90,8 +90,12 @@ class PTTParticipants {
     talking = json['talking'] != null ? json['talking'] : talking;
     status = json['status'] != null ? json['status'] : status;
     spatialPosition = json['spatial_position'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    if (json['latitude'] != null) {
+      latitude = double.parse(json['latitude']);
+    }
+    if (json['longitude'] != null) {
+      longitude = double.parse(json['longitude']);
+    }
   }
 
   Map<String, dynamic> toJson() {
