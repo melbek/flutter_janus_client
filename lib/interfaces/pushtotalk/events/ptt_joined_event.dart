@@ -55,6 +55,8 @@ class PTTParticipants {
   bool? talking;
   bool? status;
   int? spatialPosition;
+  double? latitude;
+  double? longitude;
 
   PTTParticipants({
     this.id,
@@ -70,6 +72,8 @@ class PTTParticipants {
     this.talking = false,
     this.status = false,
     this.spatialPosition,
+    this.latitude,
+    this.longitude,
   });
 
   PTTParticipants.fromJson(dynamic json) {
@@ -86,6 +90,8 @@ class PTTParticipants {
     talking = json['talking'] != null ? json['talking'] : talking;
     status = json['status'] != null ? json['status'] : status;
     spatialPosition = json['spatial_position'];
+    latitude = json['latitude'];
+    longitude = json['longitude'];
   }
 
   Map<String, dynamic> toJson() {
