@@ -1,5 +1,9 @@
 part of janus_client;
 
+enum UserType {
+  systemAdmin, countryAdmin, creator, moderator, standard
+}
+
 class PTTJoinedEvent extends PTTEvent {
   PTTJoinedEvent({
     pushtotalk,
@@ -51,7 +55,7 @@ class PTTParticipants {
   String? firstName;
   String? lastName;
   String? image;
-  String? userType;
+  UserType userType;
   bool? setup;
   bool muted;
   bool isBanned;
@@ -68,7 +72,7 @@ class PTTParticipants {
     this.firstName,
     this.lastName,
     this.image,
-    this.userType,
+    this.userType = UserType.standard,
     this.setup = false,
     this.muted = false,
     this.isBanned = false,
@@ -80,14 +84,18 @@ class PTTParticipants {
   });
 
   PTTParticipants.fromJson(dynamic json): 
-    this.muted = true, this.status = false, this.isBanned = false {
+    this.muted = true,
+    this.status = false,
+    this.isBanned = false,
+    this.userType = UserType.standard
+     {
     id = json['id'];
     customId = json['custom_id'];
     display = json['display'];
     firstName = json['first_name'];
     lastName = json['last_name'];
     image = json['image'];
-    userType = json['user_type'];
+    userType = typeFromString(json['user_type']);
     setup = json['setup'] != null ? json['setup'] : setup;
     muted = json['muted'] != null ? json['muted'] : muted;
     isBanned = json['is_banned'] != null ? json['is_banned'] : isBanned;
@@ -99,6 +107,19 @@ class PTTParticipants {
     }
     if (json['longitude'] != null) {
       longitude = double.parse(json['longitude']);
+    }
+  }
+
+  UserType typeFromString(String? value) {
+    if (value == null) {
+      return UserType.standard;
+    }
+    switch (value) {
+      case 'system_admin': return UserType.systemAdmin;
+      case 'country_admin': return UserType.countryAdmin;
+      case 'creator': return UserType.creator;
+      case 'moderator': return UserType.moderator;
+      default: return UserType.standard;
     }
   }
 
