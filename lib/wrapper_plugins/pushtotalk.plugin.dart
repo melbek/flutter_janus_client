@@ -166,7 +166,7 @@ class PushToTalkPlugin extends JanusPlugin {
       TypedEvent<JanusEvent> typedEvent = TypedEvent<JanusEvent>(event: JanusEvent.fromJson(event.event), jsep: event.jsep);
       var data = typedEvent.event.plugindata?.data;
       if (data == null) return;
-      if (data["pushtotalk"] == "joined") {
+      if (data["pushtotalk"] == "joined" || data["pushtotalk"] == "joining") {
         typedEvent.event.plugindata?.data = PTTJoinedEvent.fromJson(data);
         _typedMessagesSink?.add(typedEvent);
       } else if (data["pushtotalk"] == "event") {

@@ -6,6 +6,7 @@ class PTTJoinedEvent extends PTTEvent {
     room,
     this.id,
     this.display,
+    this.timestamp,
     this.participants,
   }) {
     super.pushtotalk = pushtotalk;
@@ -17,6 +18,7 @@ class PTTJoinedEvent extends PTTEvent {
     room = json['room'];
     id = json['custom_id'];
     display = json['display'];
+    timestamp = json['mic_timestamp'];
     if (json['participants'] != null) {
       participants = [];
       json['participants'].forEach((v) {
@@ -26,6 +28,7 @@ class PTTJoinedEvent extends PTTEvent {
   }
   dynamic id;
   String? display;
+  int? timestamp;
   List<PTTParticipants>? participants;
 
   Map<String, dynamic> toJson() {
