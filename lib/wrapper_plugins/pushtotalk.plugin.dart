@@ -139,7 +139,7 @@ class PushToTalkPlugin extends JanusPlugin {
     //_handleRoomIdTypeDifference(payload);
     JanusEvent response = JanusEvent.fromJson(await send(data: payload));
     JanusError.throwErrorFromEvent(response);
-    return (response.plugindata?.data['participants'] as List<dynamic>).map((e) => PTTParticipants.fromJson(e)).toList();
+    return (response.plugindata?.data['participants'] as List<dynamic>?)?.map((e) => PTTParticipants.fromJson(e)).toList() ?? [];
   }
 
   bool _onCreated = false;
