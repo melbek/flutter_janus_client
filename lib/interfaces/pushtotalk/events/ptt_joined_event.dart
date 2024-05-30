@@ -50,10 +50,10 @@ class PTTParticipants {
   String? image;
   String? userType;
   bool? setup;
-  bool? muted;
-  bool? isBanned;
+  bool muted;
+  bool isBanned;
   bool? talking;
-  bool? status;
+  bool status;
   int? spatialPosition;
   double? latitude;
   double? longitude;
@@ -76,7 +76,8 @@ class PTTParticipants {
     this.longitude,
   });
 
-  PTTParticipants.fromJson(dynamic json) {
+  PTTParticipants.fromJson(dynamic json): 
+    this.muted = true, this.status = false, this.isBanned = false {
     id = json['id'];
     customId = json['custom_id'];
     display = json['display'];
