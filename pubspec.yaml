@@ -19,6 +19,7 @@ dependencies:
   uuid: ^4.1.0
   logging: ^1.0.2
   dartdoc: ^6.2.2
+  json_annotation: 4.9.0
 
 dev_dependencies:
   flutter_test:

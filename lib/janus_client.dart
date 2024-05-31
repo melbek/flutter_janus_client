@@ -2,6 +2,7 @@
 library janus_client;
 
 import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:logging/logging.dart';
 import 'dart:async';
 import 'dart:io';

@@ -1,5 +1,6 @@
 part of janus_client;
 
+@JsonEnum(fieldRename: FieldRename.snake)
 enum UserType {
   systemAdmin, countryAdmin, creator, moderator, standard
 }
