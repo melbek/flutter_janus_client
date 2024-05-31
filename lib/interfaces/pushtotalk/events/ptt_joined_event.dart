@@ -4,6 +4,10 @@ enum UserType {
   systemAdmin, countryAdmin, creator, moderator, standard
 }
 
+extension on UserType {
+  int compareTo(UserType other) =>this.index.compareTo(other.index);
+}
+
 class PTTJoinedEvent extends PTTEvent {
   PTTJoinedEvent({
     pushtotalk,
