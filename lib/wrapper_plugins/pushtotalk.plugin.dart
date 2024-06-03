@@ -169,6 +169,9 @@ class PushToTalkPlugin extends JanusPlugin {
       if (data["pushtotalk"] == "joined" || data["pushtotalk"] == "joining") {
         typedEvent.event.plugindata?.data = PTTJoinedEvent.fromJson(data);
         _typedMessagesSink?.add(typedEvent);
+      } else if (data["pushtotalk"] == "status_changed") {
+        typedEvent.event.plugindata?.data = PTTStatusChangedEvent.fromJson(data);
+        _typedMessagesSink?.add(typedEvent);
       } else if (data["pushtotalk"] == "event") {
         if (data["participants"] != null) {
           typedEvent.event.plugindata?.data = PTTNewParticipantsEvent.fromJson(data);
