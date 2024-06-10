@@ -276,7 +276,8 @@ class JanusPlugin {
         _context._logger.severe(errorMessage);
         throw errorMessage;
       }
-      var decodedResponse = parse(response.body);
+      var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
+      //var decodedResponse = parse(response.body);
       List<dynamic> json = ((decodedResponse != null && decodedResponse.isNotEmpty)) ? decodedResponse : [];
       json.forEach((element) {
         if (!_streamController!.isClosed) {
