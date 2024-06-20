@@ -191,6 +191,9 @@ class PushToTalkPlugin extends JanusPlugin {
       } else if (data["pushtotalk"] == "destroyed") {
         typedEvent.event.plugindata?.data = PTTDestroyedEvent.fromJson(data);
         _typedMessagesSink?.add(typedEvent);
+      } else if (data["pushtotalk"] == "forceMuted") {
+        typedEvent.event.plugindata?.data = PTTForceMutedEvent.fromJson(data);
+        _typedMessagesSink?.add(typedEvent);
       } else if (data['pushtotalk'] == 'event' && (data['error_code'] != null || data['result']?['code'] != null)) {
         _typedMessagesSink?.addError(JanusError.fromMap(data));
       }

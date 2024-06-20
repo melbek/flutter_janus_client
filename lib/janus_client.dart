@@ -123,6 +123,8 @@ part './interfaces/pushtotalk/events/ptt_leaving_event.dart';
 
 part './interfaces/pushtotalk/events/ptt_status_changed_event.dart';
 
+part './interfaces/pushtotalk/events/ptt_force_muted_event.dart';
+
 part './interfaces/sip/events/sip_registered_event.dart';
 
 part './interfaces/sip/events/sip_accepted_event.dart';
